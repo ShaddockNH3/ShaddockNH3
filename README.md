@@ -1,5 +1,7 @@
 ## Hi there 👋
 
+Just a humble and obscure soul, dreaming of ascending to prominence while journeying along the path.
+
 <!--
 **ShaddockNH3/ShaddockNH3** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
