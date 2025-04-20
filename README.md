@@ -1,6 +1,6 @@
-## Hi there 👋
+**Just a humble and obscure soul, dreaming of ascending to prominence while journeying along the path.**
 
-Just a humble and obscure soul, dreaming of ascending to prominence while journeying along the path.
+My nickname is ShaddockNH3.
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=ShaddockNH3)](https://github.com/anuraghazra/github-readme-stats)
 
