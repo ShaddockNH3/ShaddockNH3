@@ -17,6 +17,6 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 ### 📊 My GitHub Stats
 
 <p align="center">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=radical&rank_icon=github" alt="ShaddockNH3's GitHub stats" />
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=radical" alt="ShaddockNH3's Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=tokyonight&rank_icon=github&hide_border=true" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=tokyonight&hide_border=true" />
 </p>
