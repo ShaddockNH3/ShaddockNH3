@@ -1,20 +1,22 @@
-# I am ShaddockNH3
+# Hi there, I'm ShaddockNH3 👋
 
 **Just a humble and obscure soul, dreaming of ascending to prominence while journeying along the path.**
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=ShaddockNH3)](https://github.com/anuraghazra/github-readme-stats)
+---
 
-<!--
-**ShaddockNH3/ShaddockNH3** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm a passionate learner and developer, always exploring new technologies and building cool things.
 
-Here are some ideas to get you started:
+- 🧑‍💻 **Name:** ShaddockNH3
+- 🎓 **University:** Fuzhou University
+- 🏢 **Organization:** West2Online
+- 🌱 **I’m currently learning:** AI, Golang
+- 📫 **How to reach me:** shaddock1122@163.com
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<br/>
+
+### 📊 My GitHub Stats
+
+<p align="center">
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=radical&rank_icon=github" alt="ShaddockNH3's GitHub stats" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=radical" alt="ShaddockNH3's Top Languages" />
+</p>
