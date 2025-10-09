@@ -16,13 +16,10 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 
 ### 📊 My GitHub Stats
 
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&rank_icon=github" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=tokyonight&hide_border=true" />
-</p>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&rank_icon=github" />
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=tokyonight&hide_border=true" />
 
 <br/>
 
-<p align="center">
-  <img src="https://github-readme-snake-generator.vercel.app/api/snake?username=ShaddockNH3&color_snake=aqua" alt="snake" />
-</p>
+<img src="https://github-readme-snake-generator.vercel.app/api/snake?username=ShaddockNH3&color_snake=aqua" alt="snake" />
+
