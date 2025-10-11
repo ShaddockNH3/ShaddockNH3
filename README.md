@@ -10,6 +10,7 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 - 🎓 **University:** Fuzhou University
 - 🏢 **Organization:** [West2Online](https://github.com/west2-online)
 - 🌱 **I’m currently learning:** AI, Golang
+- ✨ **Blog:** [shaddocknh3.github.io](https://shaddocknh3.github.io/)
 - 📫 **How to reach me:** shaddock1122@163.com
 
 <br/>
