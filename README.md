@@ -17,5 +17,7 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 
 ### 📊 My GitHub Stats
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&rank_icon=github" />
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=tokyonight&hide_border=true" />
+<div align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=tokyonight&hide_border=true" />
+</div>
