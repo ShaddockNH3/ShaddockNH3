@@ -14,5 +14,7 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 - 📫 **How to reach me:** shaddock1122@163.com
 
 ---
-### 📊 Languages Breakdown
-[![ShaddockNH3's Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=dracula&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
+📊 Languages Breakdown
+<p align="left">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShaddockNH3&theme=dracula" alt="Language Stats" />
+</p>
