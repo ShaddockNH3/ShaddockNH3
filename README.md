@@ -12,3 +12,7 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 - 🌱 **I’m currently learning:** AI, Golang
 - ✨ **Blog:** [shaddocknh3.github.io](https://shaddocknh3.github.io/)
 - 📫 **How to reach me:** shaddock1122@163.com
+
+---
+### 📊 Languages Breakdown
+[![ShaddockNH3's Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ShaddockNH3&layout=compact&theme=dracula&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
