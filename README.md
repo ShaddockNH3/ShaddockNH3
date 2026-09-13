@@ -35,19 +35,6 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 
   <br />
 
-  <!-- 2. 个人综合状态卡片 (自动自适应明暗) -->
-  <picture>
-    <source 
-      media="(prefers-color-scheme: dark)" 
-      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=radical" 
-    />
-    <source 
-      media="(prefers-color-scheme: light)" 
-      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default" 
-    />
-    <img 
-      src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default" 
-      alt="GitHub Stats" 
     />
   </picture>
 </p>
