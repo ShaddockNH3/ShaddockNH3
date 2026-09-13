@@ -33,8 +33,4 @@ I'm a passionate learner and developer, always exploring new technologies and bu
     />
   </picture>
 
-  <br />
-
-    />
-  </picture>
 </p>
