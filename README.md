@@ -20,14 +20,14 @@ I'm a passionate learner and developer, always exploring new technologies and bu
   <picture>
     <source 
       media="(prefers-color-scheme: dark)" 
-      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=dracula&rank_icon=github&bg_color=00000000" 
+      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=dracula&rank_icon=default&bg_color=00000000" 
     />
     <source 
       media="(prefers-color-scheme: light)" 
-      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=github&bg_color=00000000" 
+      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=default&bg_color=00000000" 
     />
     <img 
-      src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=github&bg_color=00000000" 
+      src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=default&bg_color=00000000" 
       alt="GitHub Stats" 
     />
   </picture>
