@@ -17,20 +17,18 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 ### 📊 GitHub Situation
 
 <p align="left">
-  <!-- 1. 语言统计卡片 (自动自适应明暗) -->
   <picture>
     <source 
       media="(prefers-color-scheme: dark)" 
-      srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShaddockNH3&theme=dracula" 
+      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=dracula&rank_icon=github&bg_color=00000000" 
     />
     <source 
       media="(prefers-color-scheme: light)" 
-      srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShaddockNH3&theme=default" 
+      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=github&bg_color=00000000" 
     />
     <img 
-      src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShaddockNH3&theme=default" 
-      alt="Languages Breakdown" 
+      src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=github&bg_color=00000000" 
+      alt="GitHub Stats" 
     />
   </picture>
-
 </p>
