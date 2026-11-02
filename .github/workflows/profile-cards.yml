@@ -1,0 +1,40 @@
+name: GitHub-Profile-Summary-Cards
+
+on:
+  schedule:
+    # 每天 UTC 18:00 = 北京时间 02:00
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "profile-summary-card-output/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-${{ matrix.theme }}
+    permissions:
+      contents: write
+    strategy:
+      # 串行执行，避免两次 push 抢同一个分支
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        theme:
+          - github_dark
+          - github
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          BRANCH_NAME: "main"
+          TIME_ZONE: "Asia/Shanghai"
+          THEME: ${{ matrix.theme }}
+          ANIMATION: "rise"
+          AUTO_PUSH: true

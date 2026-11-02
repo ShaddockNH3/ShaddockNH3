@@ -16,19 +16,42 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 ---
 ### 📊 GitHub Situation
 
+<!-- 卡片由 .github/workflows/profile-cards.yml 每天自动生成并提交，数据源是自己仓库里的 SVG，不依赖任何第三方接口 -->
+
 <p align="left">
   <picture>
-    <source 
-      media="(prefers-color-scheme: dark)" 
-      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=dracula&rank_icon=default&bg_color=00000000" 
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github_dark/0-profile-details.svg" />
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/0-profile-details.svg" />
+    <img
+      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/0-profile-details.svg"
+      alt="Profile Details"
+      width="700"
     />
-    <source 
-      media="(prefers-color-scheme: light)" 
-      srcset="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=default&bg_color=00000000" 
+  </picture>
+</p>
+
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github_dark/3-stats.svg" />
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/3-stats.svg" />
+    <img
+      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/3-stats.svg"
+      alt="GitHub Stats"
+      width="340"
     />
-    <img 
-      src="https://github-readme-stats.vercel.app/api?username=ShaddockNH3&show_icons=true&theme=default&rank_icon=default&bg_color=00000000" 
-      alt="GitHub Stats" 
+  </picture><picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github_dark/1-repos-per-language.svg" />
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/1-repos-per-language.svg" />
+    <img
+      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/1-repos-per-language.svg"
+      alt="Most Used Languages"
+      width="340"
     />
   </picture>
 </p>
