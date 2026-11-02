@@ -27,6 +27,11 @@ jobs:
           - github
     steps:
       - uses: actions/checkout@v4
+        with:
+          # checkout 默认只拉「触发本次 workflow 的那个 SHA」，而不是分支最新 tip。
+          # 两个主题串行时，前一个跑完已经往前推了一次 commit，
+          # 后一个若不抓最新 tip，生成完的 git push 会因 non-fast-forward 被拒。
+          ref: ${{ github.ref_name }}
 
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
