@@ -8,31 +8,26 @@ on:
   push:
     branches:
       - main
+    # 产物提交不再触发本体，避免自激循环
     paths-ignore:
       - "profile-summary-card-output/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: generate-${{ matrix.theme }}
+    name: generate-cards
     permissions:
       contents: write
-    strategy:
-      # 串行执行，避免两次 push 抢同一个分支
-      max-parallel: 1
-      fail-fast: false
-      matrix:
-        theme:
-          - github_dark
-          - github
     steps:
       - uses: actions/checkout@v4
         with:
-          # checkout 默认只拉「触发本次 workflow 的那个 SHA」，而不是分支最新 tip。
-          # 两个主题串行时，前一个跑完已经往前推了一次 commit，
-          # 后一个若不抓最新 tip，生成完的 git push 会因 non-fast-forward 被拒。
+          # 取分支最新 tip。默认会落在「触发事件的 SHA」上，
+          # 远端若已有产物提交，生成完的 git push 会非快进被拒。
           ref: ${{ github.ref_name }}
 
+      # THEME 必须留空（= 生成全部主题），不能拆成两次跑。
+      # 该 action 每次都会清空整个 profile-summary-card-output/ 再重建，
+      # 分成两个 job 时，后一个会把前一个的主题目录整片删掉。
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
           GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
@@ -40,6 +35,6 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: "main"
           TIME_ZONE: "Asia/Shanghai"
-          THEME: ${{ matrix.theme }}
+          THEME: ""
           ANIMATION: "rise"
           AUTO_PUSH: true
