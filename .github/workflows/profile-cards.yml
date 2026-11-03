@@ -63,11 +63,18 @@ jobs:
           set -euo pipefail
           cp -r /tmp/cards-keep/github_dark profile-summary-card-output/
 
-      - name: 生成 Rank 圆环
+      - name: 生成官方统计卡（含 rank 圆环）
         env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-        run: node scripts/rank-card.mjs
+          PAT_1: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+          TARGET_USER: ${{ github.repository_owner }}
+          GHS_DIR: ${{ runner.temp }}/github-readme-stats
+        run: |
+          set -euo pipefail
+          # 直接用上游代码渲染，不自己仿那张卡的排版。
+          # 只装运行时依赖（5 个），忽略 postinstall。
+          git clone --depth 1 https://github.com/anuraghazra/github-readme-stats.git "$GHS_DIR"
+          npm install --prefix "$GHS_DIR" --omit=dev --ignore-scripts --no-audit --no-fund
+          node scripts/stats-card.mjs
 
       - name: 提交
         run: |

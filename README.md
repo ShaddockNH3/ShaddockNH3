@@ -35,23 +35,13 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/rank/rank-dark.svg" />
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/stats/stats-dark.svg" />
     <source media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/rank/rank-light.svg" />
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/stats/stats-light.svg" />
     <img
-      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/rank/rank-light.svg"
-      alt="GitHub Rank"
-      width="340"
-    />
-  </picture><picture>
-    <source media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github_dark/3-stats.svg" />
-    <source media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/3-stats.svg" />
-    <img
-      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/3-stats.svg"
+      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/stats/stats-light.svg"
       alt="GitHub Stats"
-      width="340"
+      width="467"
     />
   </picture>
 </p>
@@ -65,6 +55,16 @@ I'm a passionate learner and developer, always exploring new technologies and bu
     <img
       src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/1-repos-per-language.svg"
       alt="Most Used Languages"
+      width="340"
+    />
+  </picture><picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github_dark/4-productive-time.svg" />
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/4-productive-time.svg" />
+    <img
+      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/4-productive-time.svg"
+      alt="Productive Time"
       width="340"
     />
   </picture>
