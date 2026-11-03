@@ -1,4 +1,4 @@
-name: GitHub-Profile-Summary-Cards
+name: GitHub-Profile-Cards
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
   push:
     branches:
       - main
-    # 产物提交不再触发本体，避免自激循环
+    # 卡片提交不再触发本体，避免自激循环
     paths-ignore:
       - "profile-summary-card-output/**"
 
@@ -22,59 +22,21 @@ jobs:
       - uses: actions/checkout@v4
         with:
           # 取分支最新 tip。默认会落在「触发事件的 SHA」上，
-          # 远端若已有产物提交，末尾的 git push 会非快进被拒。
+          # 远端若已有卡片提交，末尾的 git push 会非快进被拒。
           ref: ${{ github.ref_name }}
 
-      # 该 action 每次运行都会清空整个 profile-summary-card-output/ 再重建，
-      # 所以两套主题必须分两次生成，中间把先跑的那套挪出输出目录。
-      - name: 生成深色主题
-        uses: vn7n24fzkq/github-profile-summary-cards@release
-        env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
-        with:
-          USERNAME: ${{ github.repository_owner }}
-          BRANCH_NAME: "main"
-          TIME_ZONE: "Asia/Shanghai"
-          THEME: "github_dark"
-          ANIMATION: "rise"
-          AUTO_PUSH: false
-
-      - name: 暂存深色产物
-        run: |
-          set -euo pipefail
-          rm -rf /tmp/cards-keep
-          mkdir -p /tmp/cards-keep
-          cp -r profile-summary-card-output/github_dark /tmp/cards-keep/
-
-      - name: 生成浅色主题
-        uses: vn7n24fzkq/github-profile-summary-cards@release
-        env:
-          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
-        with:
-          USERNAME: ${{ github.repository_owner }}
-          BRANCH_NAME: "main"
-          TIME_ZONE: "Asia/Shanghai"
-          THEME: "github"
-          ANIMATION: "rise"
-          AUTO_PUSH: false
-
-      - name: 合并两套主题
-        run: |
-          set -euo pipefail
-          cp -r /tmp/cards-keep/github_dark profile-summary-card-output/
-
-      - name: 生成官方统计卡（含 rank 圆环）
+      - name: 生成卡片（stats / langs）
         env:
           PAT_1: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
           TARGET_USER: ${{ github.repository_owner }}
           GHS_DIR: ${{ runner.temp }}/github-readme-stats
         run: |
           set -euo pipefail
-          # 直接用上游代码渲染，不自己仿那张卡的排版。
-          # 只装运行时依赖（5 个），忽略 postinstall。
+          # 直接用 github-readme-stats 上游代码渲染，不自己仿排版。
+          # 只装 5 个运行时依赖，忽略 postinstall。
           git clone --depth 1 https://github.com/anuraghazra/github-readme-stats.git "$GHS_DIR"
           npm install --prefix "$GHS_DIR" --omit=dev --ignore-scripts --no-audit --no-fund
-          node scripts/stats-card.mjs
+          node scripts/github-cards.mjs
 
       - name: 提交
         run: |
@@ -82,5 +44,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "chore: 更新 GitHub 统计卡片"
+          git diff --cached --quiet || git commit -m "chore: 更新 GitHub 卡片"
           git push
