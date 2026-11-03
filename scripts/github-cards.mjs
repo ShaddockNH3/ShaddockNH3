@@ -8,7 +8,6 @@
  *
  * 产出：
  *   profile-summary-card-output/stats/stats-{light,dark}.svg   统计卡（含 rank 圆环）
- *   profile-summary-card-output/langs/langs-{light,dark}.svg   语言卡（compact 布局）
  *
  * 环境变量：
  *   GHS_DIR      github-readme-stats 的本地路径（workflow 里现 clone 一份）
@@ -39,8 +38,6 @@ const importFrom = (rel) => import(pathToFileURL(join(base, rel)).href);
 
 const { fetchStats } = await importFrom("src/fetchers/stats.js");
 const { renderStatsCard } = await importFrom("src/cards/stats.js");
-const { fetchTopLanguages } = await importFrom("src/fetchers/top-languages.js");
-const { renderTopLanguages } = await importFrom("src/cards/top-languages.js");
 
 /**
  * 把带 CSS 动画的卡片改成静态的。
@@ -48,6 +45,10 @@ const { renderTopLanguages } = await importFrom("src/cards/top-languages.js");
  * 上游卡片靠 animation 渐显：例如 `.stagger { opacity: 0; animation: fadeIn ... }`，
  * 圆环的填充比例藏在 @keyframes rankAnimation 的终态里。
  * 静态 SVG 没有动画，不处理就会整片空白 / 圆环永远是整圈。
+ *
+ * 注意 animation 的匹配范围要排除引号和尖括号：
+ * 内联 `style="animation-delay: 100ms"` 末尾没有分号，若写成 [^;]*;
+ * 会一路吞到下一个分号，把标签吃掉，产出非法 XML。
  */
 function staticize(svg) {
   const m = svg.match(
@@ -57,7 +58,7 @@ function staticize(svg) {
 
   let out = svg
     .replace(/@keyframes[^{]*\{(?:[^{}]|\{[^{}]*\})*\}/g, "")
-    .replace(/animation(-[a-z]+)?:[^;]*;/g, "")
+    .replace(/animation(-[a-z]+)?:[^;"<>]*;/g, "")
     .replace(/opacity:\s*0;/g, "opacity: 1;")
     .replace(/\.stagger\s*\{[^}]*\}/g, ".stagger { opacity: 1; }");
 
@@ -98,15 +99,3 @@ await writeCard("stats", "stats", (theme) =>
 console.log(
   `stats: stars=${stats.totalStars} commits=${stats.totalCommits} prs=${stats.totalPRs} issues=${stats.totalIssues} contributedTo=${stats.contributedTo} rank=${stats.rank.level}`,
 );
-
-const langs = await fetchTopLanguages(USER);
-await writeCard("langs", "langs", (theme) =>
-  renderTopLanguages(langs, {
-    // compact = 一条堆叠横条 + 双列图例，比甜甜圈紧凑
-    layout: "compact",
-    langs_count: 8,
-    bg_color: "00000000",
-    theme,
-  }),
-);
-console.log(`langs: ${Object.keys(langs).slice(0, 8).join(", ")}`);
