@@ -35,6 +35,16 @@ I'm a passionate learner and developer, always exploring new technologies and bu
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/rank/rank-dark.svg" />
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/rank/rank-light.svg" />
+    <img
+      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/rank/rank-light.svg"
+      alt="GitHub Rank"
+      width="340"
+    />
+  </picture><picture>
+    <source media="(prefers-color-scheme: dark)"
       srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github_dark/3-stats.svg" />
     <source media="(prefers-color-scheme: light)"
       srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github/3-stats.svg" />
@@ -43,7 +53,11 @@ I'm a passionate learner and developer, always exploring new technologies and bu
       alt="GitHub Stats"
       width="340"
     />
-  </picture><picture>
+  </picture>
+</p>
+
+<p align="left">
+  <picture>
     <source media="(prefers-color-scheme: dark)"
       srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/github_dark/1-repos-per-language.svg" />
     <source media="(prefers-color-scheme: light)"
