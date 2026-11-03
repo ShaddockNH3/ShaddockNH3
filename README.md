@@ -41,7 +41,7 @@ I'm a passionate learner and developer, always exploring new technologies and bu
     <img
       src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/main/profile-summary-card-output/langs/langs-light.svg"
       alt="Most Used Languages"
-      width="320"
+      width="300"
     />
   </picture>
 </p>
