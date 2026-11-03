@@ -32,3 +32,16 @@ I'm a passionate learner and developer, always exploring new technologies and bu
   </picture>
 </p>
 
+
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/output/snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/output/snake.svg" />
+    <img
+      src="https://raw.githubusercontent.com/ShaddockNH3/ShaddockNH3/output/snake.svg"
+      alt="contribution snake"
+    />
+  </picture>
+</p>
