@@ -1,11 +1,11 @@
-<svg width="340" height="200" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Rank A-">
-  <title>GitHub Rank A-</title>
+<svg width="340" height="200" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Rank B+">
+  <title>GitHub Rank B+</title>
   <rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="none" stroke="#30363D" stroke-width="1"/>
   <text x="24" y="32" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="12" letter-spacing="2.4" fill="#8B949E">RANK</text>
   <g transform="rotate(-90 170 100)">
     <circle cx="170" cy="100" r="48" fill="none" stroke="#2D333B" stroke-width="9"/>
-    <circle cx="170" cy="100" r="48" fill="none" stroke="#56A64B" stroke-width="9" stroke-dasharray="170.22 301.59" stroke-linecap="round"/>
+    <circle cx="170" cy="100" r="48" fill="none" stroke="#2F81F7" stroke-width="9" stroke-dasharray="174.10 301.59" stroke-linecap="round"/>
   </g>
-  <text x="170" y="101" text-anchor="middle" dominant-baseline="central" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="34" font-weight="600" fill="#56A64B">A-</text>
-  <text x="170" y="172" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="12" fill="#8B949E">Top 44%</text>
+  <text x="170" y="101" text-anchor="middle" dominant-baseline="central" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="34" font-weight="600" fill="#2F81F7">B+</text>
+  <text x="170" y="172" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="12" fill="#8B949E">Top 42%</text>
 </svg>

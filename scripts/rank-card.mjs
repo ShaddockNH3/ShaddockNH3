@@ -35,10 +35,17 @@ if (!LOGIN) {
   process.exit(1);
 }
 
-/** 权重与中位数，取自 github-readme-stats 的 rank 计算 */
-const WEIGHT = { commits: 2, prs: 3, issues: 1, stars: 4, followers: 1 };
-const MEDIAN = { commits: 250, prs: 50, issues: 25, stars: 50, followers: 10 };
+/**
+ * 权重与中位数，严格对齐 github-readme-stats 的 src/calculateRank.js
+ * 注意 total 是 12（含 reviews 的 1），不是 11
+ */
+const WEIGHT = { commits: 2, prs: 3, issues: 1, reviews: 1, stars: 4, followers: 1 };
+const MEDIAN = { commits: 250, prs: 50, issues: 25, reviews: 2, stars: 50, followers: 10 };
 const TOTAL_WEIGHT = Object.values(WEIGHT).reduce((a, b) => a + b, 0);
+
+/** 等级表，与官方 THRESHOLDS / LEVELS 一一对应（第一位是 S，没有 S+） */
+const THRESHOLDS = [1, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100];
+const LEVELS = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C"];
 
 const QUERY = `
   query ($login: String!) {
@@ -48,6 +55,7 @@ const QUERY = `
         totalCommitContributions
         totalPullRequestContributions
         totalIssueContributions
+        totalPullRequestReviewContributions
         restrictedContributionsCount
       }
       repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
@@ -85,6 +93,7 @@ async function fetchStats() {
     commits: c.totalCommitContributions + c.restrictedContributionsCount,
     prs: c.totalPullRequestContributions,
     issues: c.totalIssueContributions,
+    reviews: c.totalPullRequestReviewContributions,
     stars: user.repositories.nodes.reduce(
       (sum, r) => sum + r.stargazerCount,
       0,
@@ -92,45 +101,40 @@ async function fetchStats() {
   };
 }
 
+/** 官方两个分布函数：前四项用指数分布，stars / followers 用对数正态 */
 const exponentialCdf = (x) => 1 - 2 ** -x;
+const logNormalCdf = (x) => x / (1 + x);
 
 function computeRank(s) {
   const score =
     (WEIGHT.commits * exponentialCdf(s.commits / MEDIAN.commits) +
       WEIGHT.prs * exponentialCdf(s.prs / MEDIAN.prs) +
       WEIGHT.issues * exponentialCdf(s.issues / MEDIAN.issues) +
-      WEIGHT.stars * exponentialCdf(s.stars / MEDIAN.stars) +
-      WEIGHT.followers * exponentialCdf(s.followers / MEDIAN.followers)) /
+      WEIGHT.reviews * exponentialCdf(s.reviews / MEDIAN.reviews) +
+      WEIGHT.stars * logNormalCdf(s.stars / MEDIAN.stars) +
+      WEIGHT.followers * logNormalCdf(s.followers / MEDIAN.followers)) /
     TOTAL_WEIGHT;
 
   const rank = 1 - score;
-  // 夹到 1~100，避免爆表或负值
-  const percentile = Math.min(100, Math.max(1, rank * 100));
-  return { rank, percentile, grade: gradeFor(percentile) };
+  const percentile = Math.min(100, Math.max(0, rank * 100));
+  return { rank, percentile, level: levelFor(percentile) };
 }
 
-function gradeFor(p) {
-  if (p <= 1) return "S+";
-  if (p <= 12.5) return "S";
-  if (p <= 25) return "A+";
-  if (p <= 37.5) return "A";
-  if (p <= 50) return "A-";
-  if (p <= 62.5) return "B+";
-  if (p <= 75) return "B";
-  if (p <= 87.5) return "B-";
-  return "C+";
+function levelFor(p) {
+  const i = THRESHOLDS.findIndex((t) => p <= t);
+  return LEVELS[i === -1 ? LEVELS.length - 1 : i];
 }
 
-const GRADE_COLOR = {
-  "S+": "#F778BA",
-  S: "#FF8C42",
-  "A+": "#2EA043",
-  A: "#3FB950",
-  "A-": "#56A64B",
+const LEVEL_COLOR = {
+  S: "#F778BA",
+  "A+": "#FF8C42",
+  A: "#2EA043",
+  "A-": "#3FB950",
   "B+": "#2F81F7",
   B: "#4C8EF7",
   "B-": "#6E9BF0",
   "C+": "#8B949E",
+  C: "#6E7681",
 };
 
 const THEMES = {
@@ -166,23 +170,23 @@ function escapeXml(s) {
   );
 }
 
-function render(themeName, stats, { percentile, grade }) {
+function render(themeName, stats, { percentile, level }) {
   const t = THEMES[themeName];
-  const color = GRADE_COLOR[grade];
+  const color = LEVEL_COLOR[level];
   // percentile 越小越好 → 圆环越满
   const progress = 1 - percentile / 100;
   const dash = `${(CIRC * progress).toFixed(2)} ${CIRC.toFixed(2)}`;
   const topLabel = `Top ${percentile < 10 ? percentile.toFixed(1) : Math.round(percentile)}%`;
 
-  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Rank ${grade}">
-  <title>GitHub Rank ${grade}</title>
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Rank ${level}">
+  <title>GitHub Rank ${level}</title>
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="6" fill="none" stroke="${t.border}" stroke-width="1"/>
   <text x="24" y="32" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="12" letter-spacing="2.4" fill="${t.muted}">RANK</text>
   <g transform="rotate(-90 ${CX} ${CY})">
     <circle cx="${CX}" cy="${CY}" r="${R}" fill="none" stroke="${t.track}" stroke-width="${STROKE}"/>
     <circle cx="${CX}" cy="${CY}" r="${R}" fill="none" stroke="${color}" stroke-width="${STROKE}" stroke-dasharray="${dash}" stroke-linecap="round"/>
   </g>
-  <text x="${CX}" y="${CY + 1}" text-anchor="middle" dominant-baseline="central" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="34" font-weight="600" fill="${color}">${escapeXml(grade)}</text>
+  <text x="${CX}" y="${CY + 1}" text-anchor="middle" dominant-baseline="central" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="34" font-weight="600" fill="${color}">${escapeXml(level)}</text>
   <text x="${CX}" y="172" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="12" fill="${t.muted}">${escapeXml(topLabel)}</text>
 </svg>
 `;
@@ -199,8 +203,8 @@ for (const themeName of Object.keys(THEMES)) {
 }
 
 console.log(
-  `commits=${stats.commits} prs=${stats.prs} issues=${stats.issues} stars=${stats.stars} followers=${stats.followers}`,
+  `commits=${stats.commits} prs=${stats.prs} issues=${stats.issues} reviews=${stats.reviews} stars=${stats.stars} followers=${stats.followers}`,
 );
 console.log(
-  `rank=${computed.rank.toFixed(4)} percentile=${computed.percentile.toFixed(2)} grade=${computed.grade}`,
+  `rank=${computed.rank.toFixed(4)} percentile=${computed.percentile.toFixed(2)} level=${computed.level}`,
 );
