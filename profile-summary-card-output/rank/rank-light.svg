@@ -4,7 +4,7 @@
   <text x="24" y="32" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="12" letter-spacing="2.4" fill="#57606A">RANK</text>
   <g transform="rotate(-90 170 100)">
     <circle cx="170" cy="100" r="48" fill="none" stroke="#E4E6EA" stroke-width="9"/>
-    <circle cx="170" cy="100" r="48" fill="none" stroke="#2F81F7" stroke-width="9" stroke-dasharray="174.10 301.59" stroke-linecap="round"/>
+    <circle cx="170" cy="100" r="48" fill="none" stroke="#2F81F7" stroke-width="9" stroke-dasharray="174.15 301.59" stroke-linecap="round"/>
   </g>
   <text x="170" y="101" text-anchor="middle" dominant-baseline="central" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="34" font-weight="600" fill="#2F81F7">B+</text>
   <text x="170" y="172" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="12" fill="#57606A">Top 42%</text>
